@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索我的世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+            background: transparent;
+        }
+        a:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 10px white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            transform: rotateX(45deg) rotateY(45deg);
+            animation: spin 5s infinite linear;
+        }
+        .cube div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+        }
+        .front  { transform: translateZ(50px); }
+        .back   { transform: rotateY(180deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .right  { transform: rotateY(90deg) translateZ(50px); }
+        .top    { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+        @keyframes spin {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        .button-3d {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .button-3d:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到我的世界</h1>
+    <p>这里记录了我的探索、项目和灵感。</p>
+    <p>你可以在这里找到更多有趣的内容！</p>
+    <a href="index.html">返回主页</a>
+    <br><br>
+    <button class="button-3d" onclick="alert('欢迎来到3D世界！')">点击互动</button>
+    <div class="cube">
+        <div class="front"></div>
+        <div class="back"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
