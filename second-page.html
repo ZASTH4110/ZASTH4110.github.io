@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎来到我的GitHub主页</title>
+    <title>探索我的世界</title>
     <style>
         * {
             margin: 0;
@@ -67,49 +67,14 @@
             from { opacity: 0.7; }
             to { opacity: 1; }
         }
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-        .particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: moveParticle linear infinite;
-        }
-        @keyframes moveParticle {
-            from { transform: translateY(0); opacity: 1; }
-            to { transform: translateY(-100vh); opacity: 0; }
-        }
     </style>
 </head>
 <body>
     <div class="background-animation"></div>
-    <div class="particles"></div>
-    <h1>欢迎来到我的GitHub主页</h1>
-    <p>你好！我是ZASTH4110，这里是我的个人页面！</p>
-    <p>查看我的项目，了解更多关于我的内容。</p>
-    <a href="second-page.html">进入我的世界</a>
-    <script>
-        function createParticles() {
-            const container = document.querySelector('.particles');
-            for (let i = 0; i < 100; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.animationDuration = (Math.random() * 5 + 3) + 's';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                container.appendChild(particle);
-            }
-        }
-        createParticles();
-    </script>
+    <h1>欢迎来到我的世界</h1>
+    <p>这里记录了我的探索、项目和灵感。</p>
+    <p>你可以在这里找到更多有趣的内容！</p>
+    <a href="index.html">返回主页</a>
 </body>
 </html>
+
