@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>探索我的世界</title>
+    <title>欢迎来到我的GitHub主页</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
         body {
             font-family: Arial, sans-serif;
-            background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+            background: black;
             color: white;
             text-align: center;
             height: 100vh;
@@ -22,15 +22,14 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            perspective: 1000px;
         }
         h1 {
-            font-size: 3rem;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
             animation: fadeIn 2s ease-in-out;
         }
         p {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin: 20px;
             animation: fadeIn 3s ease-in-out;
         }
@@ -55,62 +54,62 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .cube {
-            width: 100px;
-            height: 100px;
+        .background-animation {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform-style: preserve-3d;
-            transform: rotateX(45deg) rotateY(45deg);
-            animation: spin 5s infinite linear;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, rgba(0,0,0,0.9) 90%);
+            animation: pulse 6s infinite alternate;
         }
-        .cube div {
+        @keyframes pulse {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+        .particles {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
         }
-        .front  { transform: translateZ(50px); }
-        .back   { transform: rotateY(180deg) translateZ(50px); }
-        .left   { transform: rotateY(-90deg) translateZ(50px); }
-        .right  { transform: rotateY(90deg) translateZ(50px); }
-        .top    { transform: rotateX(90deg) translateZ(50px); }
-        .bottom { transform: rotateX(-90deg) translateZ(50px); }
-        @keyframes spin {
-            from { transform: rotateX(0deg) rotateY(0deg); }
-            to { transform: rotateX(360deg) rotateY(360deg); }
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: moveParticle linear infinite;
         }
-        .button-3d {
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
-        .button-3d:active {
-            transform: scale(0.9);
+        @keyframes moveParticle {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100vh); opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <h1>欢迎来到我的世界</h1>
-    <p>这里记录了我的探索、项目和灵感。</p>
-    <p>你可以在这里找到更多有趣的内容！</p>
-    <a href="index.html">返回主页</a>
-    <br><br>
-    <button class="button-3d" onclick="alert('欢迎来到3D世界！')">点击互动</button>
-    <div class="cube">
-        <div class="front"></div>
-        <div class="back"></div>
-        <div class="left"></div>
-        <div class="right"></div>
-        <div class="top"></div>
-        <div class="bottom"></div>
-    </div>
+    <div class="background-animation"></div>
+    <div class="particles"></div>
+    <h1>欢迎来到我的GitHub主页</h1>
+    <p>你好！我是ZASTH4110，这里是我的个人页面！</p>
+    <p>查看我的项目，了解更多关于我的内容。</p>
+    <a href="second-page.html">进入我的世界</a>
+    <script>
+        function createParticles() {
+            const container = document.querySelector('.particles');
+            for (let i = 0; i < 100; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
 </body>
 </html>
